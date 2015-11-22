@@ -1,0 +1,151 @@
+%!TEX encoding = UTF-8 Unicode
+\documentclass[
+    fontsize=12pt,
+    headings=small,
+    parskip=half,           % Ersetzt manuelles setzten von parskip/parindent.
+    bibliography=totoc,
+    numbers=noenddot,       % Entfernt den letzten Punkt der Kapitelnummern.
+    open=any,               % Kapitel kann auf jeder Seite beginnen.
+%   final                   % Entfernt alle todonotes und den Entwurfstempel.
+    ]{scrreprt}
+
+% ===================================Praeambel==================================
+
+% Kodierung, Sprache, Patches {{{
+\usepackage[T1]{fontenc}    % Ausgabekodierung; ermoeglicht Akzente und Umlaute
+                            %  sowie korrekte Silbentrennung.
+\usepackage[utf8]{inputenc} % Erlaub die direkte Eingabe spezieller Zeichen.
+                            %  Utf8 muss die Eingabekodierung des Editors sein.
+\usepackage[ngerman]{babel} % Deutsche Sprachanpassungen (z.B. Ueberschriften).
+\usepackage{microtype}      % Optimale Randausrichtung und Skalierung.
+\usepackage[
+    autostyle,
+    ]{csquotes}             % Korrekte Anfuehrungszeichen in der Literaturliste.
+\usepackage{fixltx2e}       % Patches fuer LaTeX2e.
+\usepackage{scrhack}        % Verhindert Warnungen mit aelteren Paketen.
+% }}}
+
+% Schriftarten {{{
+\usepackage{mathptmx}       % Times. Package 'times.sty' is obsolete.
+\usepackage[scaled=.92]{helvet}
+\usepackage{courier}
+% }}}
+
+% Biblatex {{{
+% \usepackage[
+%     style=alphabetic,
+%     backend=biber,
+%     backref=true
+%     ]{biblatex}             % Biblatex mit alphabetischem Style und biber.
+% \bibliography{Literatur.bib}% Dateiname der bib-Datei.
+% }}}
+
+% Dokument- und Texteinstellungen {{{
+\usepackage[
+    a4paper,
+    margin=2.54cm,
+    marginparwidth=2.0cm,
+    footskip=1.0cm
+    ]{geometry}             % Ersetzt 'a4wide'.
+\clubpenalty=10000          % Keine Einzelzeile am Beginn eines Paragraphen
+                            %  (Schusterjungen).
+\widowpenalty=10000         % Keine Einzelzeile am Ende eines Paragraphen
+\displaywidowpenalty=10000  %  (Hurenkinder).
+\usepackage{floatrow}       % Zentriert alle Floats.
+\usepackage{ifdraft}        % Ermoeglicht \ifoptionfinal{true}{false}
+\pagestyle{plain}           % keine Kopfzeilen
+% \sloppy                     % großzügige Formatierungsweise
+\deffootnote{1em}{1em}{\thefootnotemark.\ } % Verbessert Layout mehrzeiliger Fußnoten
+
+\makeatletter
+\AtBeginDocument{%
+    \hypersetup{%
+        pdftitle = {\@title},
+        pdfauthor  = \@author,
+    }
+}
+\makeatother
+% }}}
+
+% Weitere Pakete {{{
+\usepackage{graphicx}       % Einfuegen von Graphiken.
+\usepackage{tabu}           % Einfuegen von Tabellen.
+\usepackage{multirow}       % Tabellenzeilen zusammenfassen.
+\usepackage{multicol}       % Tabellenspalten zusammenfassen.
+\usepackage{booktabs}       % Schönere Tabellen (\toprule\midrule\bottomrule).
+\usepackage[nocut]{thmbox}  % Theorembox bspw. fuer Angreifermodell.
+\usepackage{amsmath}        % Erweiterte Handhabung mathematischer Formeln.
+\usepackage{amssymb}        % Erweiterte mathematische Symbole.
+\usepackage{rotating}
+\usepackage[
+    printonlyused
+    ]{acronym}              % Abkuerzungsverzeichnis.
+\usepackage[
+    colorinlistoftodos,
+    textsize=tiny,          % Notizen und TODOs - mit der todonotes.sty von
+    \ifoptionfinal{disable}{}%  Benjamin Kellermann ist das Package "changebar"
+    ]{todonotes}            %  bereits integriert.
+\usepackage[
+    breaklinks,
+    hidelinks,
+    pdfdisplaydoctitle,
+    pdfpagemode = {UseOutlines},
+    pdfpagelabels,
+    ]{hyperref}             % Sprungmarken im PDF. Laed das URL Paket.
+    \urlstyle{rm}           % Entfernt die Formattierung von URLs.
+\usepackage{breakurl}
+\def\UrlBreaks{\do\/\do-}
+\usepackage{listings}       % Spezielle Umgebung für...
+    \lstset{                %  ...Quelltextformatierung.
+        language=C,
+        breaklines=true,
+        breakatwhitespace=true,
+        frame=L,
+        captionpos=b,
+        xleftmargin=6ex,
+        tabsize=4,
+        numbers=left,
+        numberstyle=\ttfamily\footnotesize,
+        basicstyle=\ttfamily\footnotesize,
+        keywordstyle=\bfseries\color{green!50!black},
+        commentstyle=\itshape\color{magenta!90!black},
+        identifierstyle=\ttfamily,
+        stringstyle=\color{orange!90!black},
+        showstringspaces=false,
+        }
+% }}}
+
+% ===================================Dokument===================================
+
+\title{Hinweise für das Erscheinungsbild von Seminar-, Studien- und Bachelor-,
+    Master- und Diplomarbeiten}
+\author{Prof. Dr. Hannes Federrath}
+% \date{01.01.2015} % falls ein bestimmter Tag eingesetzt werden soll, einfach diese Zeile aktivieren
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}\Large
+    Universität Hamburg \par
+    Fachbereich Informatik
+    \vfill
+    \makeatletter
+    {\Large\textsf{\textbf{\@title}}\par}
+    \makeatother
+    \bigskip
+    am Arbeitsbereich Sicherheit in Verteilten Systemen (SVS) \par
+    \bigskip
+    \makeatletter
+    {\@author} \par
+    \makeatother
+    \bigskip
+    \makeatletter
+    {\@date}
+    \makeatother
+    \vfill
+    \vfill
+\end{center}
+\end{titlepage}
+
+
+\end{document}
