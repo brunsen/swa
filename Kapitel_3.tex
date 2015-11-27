@@ -16,9 +16,6 @@ Bei der Mircroservice Architektur besteht die Softwareanwendungen beziehungsweis
 Die Funktionen und Daten eines Mircoservices werden über das Interface des Mircoservices angeboten. Die Kommunikation zwischen den Microservices verläuft über das Netzwerk. Üblicherweise wird dafür ein simples Kommunikationsprotokoll wie HTTP verwendet. Der Aufruf eines oder mehrerer Microservices von einem Mircoservice bildet den gesamten Business Service. Abbildung X zeigt ein Beispiel. \\
 Instanzen eines Services werden in einer Registry verwaltet und sobald ein Service eine Funktion eines anderen Services benötigt fragt es bei der Registry nach diesem Service und erhält die benötigten Daten. Der genaue Ablauf der verschiedenen Akteure wird im folgenden Abschnitt genauer betrachtet.\\
 
-\begin{figure}[h]
-...
-\end{figure}
 
 \section{Design Entscheidung}
 In diesem Abschnitt wird zunächst das Koordinationsmodell mit den drei Akteuren \textit{Client}, \textit{Service} und \textit{Registry/Load Balancer} vorgestellt. Daraufhin wird auf das Ressourcenmanagement von Instanzen eingegangen, dabei wird auf verschiedene Szenarien eingegangen, wie die Anzahl der Instanzen eines Microservices reguliert wird. Zum Schluss werden die Arbeitseinteilung und Zuweisung der architektonischen Elemente (Komponenten) erläutert. Dabei werden zum einen Möglichkeiten, die die Microservice Architektur anbietet präsentiert und daraufhin welche dieser Möglichkeiten für DevOps geeignet sind.
@@ -29,9 +26,6 @@ Beim Koordinatiosmodell gibt es drei Akteure. Zum einen die \textit{Registry/Loa
 Der zweite Akteur ist die \textit{Instanz eines Services}, das Daten beziehungsweise Dienstleistungen anbietet. Die Instanz registriert sich bei der Registry und hinterlegt seinen Namen, Adresse und Interface. Darauf steht nun die Instanz für den dritten Akteur bereit: Der \textit{Client} kann dabei ein Benutzer oder ein anderer Service sein, der für einige Aufgaben weitere Service benötigt. Dafür fragt dieser bei der Registry nach den gewünschten Service und erhält die hinterlegten Daten der Serviceinstanz. Mit diesen Daten kann der Client nun die Instanz über das Interface ansprechen und verwenden. Die folgende Abbildung X gibt eine Übersicht der Beziehungen der drei Akteure.
 
 \\
-\begin{figure}[h]
-...
-\end{figure}
 
 Da es jederzeit Möglich ist, dass Instanzen ausfallen können oder nicht mehr aktiv sind, ist es wichtig das die Registry über diese Instanzen informiert ist. Denn sonst vermittelt die Registry Instanzen an Clienten, die der Client nicht ansprechen kann. Für dieses Problem gibt es den Healthcheck. Dabei werden Instanzen nur für eine bestimmte Zeit in der Registry verwaltet. Damit Instanzen nicht aus der Registry entfernt werden, müssen sich die Instanzen periodisch bei der Registry melden. Alternative kann die Registry proaktive Anfragen an Instanzen stellen, die sich in der Registry befinden. Sollte die Instanz nach bestimmter Zeit keine Antwort liefern wird diese aus der Registry entfernt.
 
