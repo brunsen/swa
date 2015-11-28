@@ -1,7 +1,28 @@
 \chapter{DevOps}
+Unter dem Begriff DevOps werden eine Menge an Maßnahmen, die die Bereiche Development und Operations enger zusammenführen, verstanden. In diesem Kapitel wird zunächst die Motivation von DevOps beschrieben. Im Anschluss werden einige Maßnahmen, die DevOps ermöglichen vorgestellt. Zum Abschluss des Kapitels werden noch ein mal die Ziele von DevOps hervorgehoben.
 
 \section{Motivation}
+DevOps bietet einem Softwarehersteller viele Vorteile. Unter anderem wird das  Prinzip des Continuous Deployment, das die Zeit zwischen der Entwicklung einer Anwendung und dem Release dieser Anwendung verringert, ermöglicht. Beim Continuous Deployment wird direkt nachdem ein Entwicklerteam neuen Code innerhalb einer Versionsverwaltung wie zum Beispiel Git freigegeben hat, dieser mittels Automatisierung auf die Zielsysteme gespielt. Dadurch ermöglicht Continuous Deployment einem Softwarehersteller neue Features schneller zu veröffentlichen und unter Umständen einen Vorteil gegenüber der Konkurrenz zu erzielen.\\
+Zustätzlich sollte die benötigte Koordination zwischen Development und Operations verringert werden. Des weiteren ermöglicht DevOps einsparungen in den benötigten Kapazitäten des Operation Teams. Dies wird mittels Automatisierung gängiger Aufgaben von Operations wie der Analyse von Systemlogs, der Erstellung von Backups, der Optimierung von Systemperformance oder der Lösung von identifizierten Problemen ermöglicht.
 
-\section{Practices}
+\section{Maßnahmen}
+Wie bereits erwähnt 
+\begin{itemize}
+\item Operations bei der Entwicklung berücksichtigen (Logging, Monitoring
+Informationen für Incident Handling)
+\item Developer werden verantwortlich für das Behandeln ernsterer Incidents
+gemacht
+\item Erzwingen eines gemeinsam genutzten Deployment Prozesses zwischen Dev
+und Operations
+\item Kontinuierliches Deployment mittels Automatismen (z.B Tests)
+\item Infrastruktur benötigt den selben Qualitätsanspruch wie Anwendungscode
+(Anwenden von Qualitätssicherungs Praktiken)
+\end{itemize}
 
 \section{Ziele}
+\begin{itemize}
+\item Entlastung der Operations
+\item Vereinfachtes Deployment
+\item Weniger Fehler beim Deployment
+\item Verringerung des Koordinationsaufwands
+\end{itemize}
