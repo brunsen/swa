@@ -1,8 +1,29 @@
 \chapter{Zukunft von DevOps}
 
-\section{Vorraussichtliche Marktakzeptanz}
+DevOps ist ein neuer Ansatz und wird aktuell fast nur von den Innovatoren wie Netflix, Amazon und Google angewandt. Enterprise Unternehmen sind ebenfalls an continuous delivery und deployment interessiert und denken über den Einsatz von DevOps nach. Für Startup Unternehmen ist DevOps nicht von Bedeutung, da ihr Fokus auf Kundengewinnung liegt. Erst beim wachsen der Unternehmens benötigen sie eine flexiblere Architektur, wie die DevOps anbietet. \\
+Aufgrund der geringen Verbreitung sind die Vorteile von DevOps gegenüber der aufwendigen Einführung noch nicht eindeutig abzuschätzen. Erst sobald mehrere Unternehmen DevOps einführen ist die Kluft überwunden und viele weitere Unternehmen entscheiden sich für das Einführen von DevOps. Abbildung X zeigt die Entwicklung der Einführung beispielsweise einer neuen Architektur. DevOps ist momentan dabei die Kluft (Chasm) zu überspringen. 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{pictures/chasm.png}
+	\caption{Chasm}
+	\label{Chasm}
+\end{figure} 
+
+Im folgenden wird auf einige Probleme und Anforderungen eingegangen die DevOps mit sich  bringen.
 
 \section{Organisatorische Probleme}
+
+\subsection{Stackholder mit Einfluss auf Dev und Ops}
+DevOps versucht Dev und Ops zusammen zu führen um den Koordinationsaufwand zu verringern. Allerdings existieren einige Stackholder die Einfluss auf Dev und Ops haben und Probleme verursachen.//
+
+Businessverantwortliche haben großen Einfluss in den meisten Bereichen der Organisation. Neue Produkte oder Änderungen in der Versorgungskette haben Auswirkungen auf Dev und Ops. Durch kurze Entwicklungs- und Produktionsphasen bleibt nicht viel Zeit für die Koordination zwischen Businessverantwortlichen, Devs und Ops. Daher regelt der \textit{BizOps} die Koordination zwischen den drei Parteien.\\
+Der Datenanalytiker betreibt mit Hilfe von beispielsweise Clustern Datenanalyse. Der gewonnene Einblick in das Business hilft Kundenverhalten zu verstehen und Bereiche für Optimierung zu finden.//
+Der Sicherheitsprozess muss agile gehalten werden, um mit dem continuous deployment mitzuhalten. Dies ist nicht nur eine organisatorische Angelegenheit, sondern auch Abhängig der Sicherheitsprüfer.
+
+\subsection{Verantwortung und Reorganisation}
+
+Mircoservices werden von kleinen Teams verwaltet, allerdings von vielen anderen Teams aufgerufen. Sobald eine neue Version eines Services ausgeliefert wird, muss nicht nur sichergestellt werden das der Service andere Services korrekt benutzten kann, sondern auch dass andere Services den eigenen Service korrekt verwenden können. Eine Lösung dafür ist, dass Teams die den neuen Service verwenden, bei der test suite Erstellung beteiligt sind. Sie sind also Co-Verantwortliche für den Service. 
 
 \section{Prozess Probleme}
 Durch die DevOps Praktiken entstehen auch eine vielzahl an Prozess Problemen. Es unter anderem für das Continuous Deployment eine so genannte Continuous Deployment Pipeline benötigt. Eine solche Pipeline besteht aus einer Vielzahl von Werkzeugen und ist dafür gedacht, den Programmcode auf eine Plattform zu spielen. Jedes dieser Werkzeuge kann allerdings eine Abhängigkeit zu dem Hersteller des Werkzeuges zur Folge haben, was die Portierbarkeit der Anwendung erschwert. Eine Möglichkeit solche Abhängigkeiten zu verhindern besteht darin bei dem Deployment auf Standards zu setzen. Derzeit existieren allerdings noch keine akzeptierten Standards für die Werkzeuge innerhalb einer Continuous Deployment Pipeline. Durch eine weitere Verbreitung von DevOps, könnten in naher Zukunft tatsächlich Standards beschlossen werden. \\
