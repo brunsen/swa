@@ -12,3 +12,6 @@ Durch häufigeres Deployment sind Unternehmen in der Lage in kurzer Zeit viele n
 All dies hat zur Folge, dass Unternehmen, die DevOps einsetzen, die Art ihres Monitorings und ihrer Qualitätssicher verändern müssen.
 
 \section{Technologische Probleme}
+In der Regel sind die Werkzeuge einer Continuous Deployment Pipeline durch Skripte zur Integration miteinander verbunden. Um weitere Werkzeuge einzufügen bedarf es einer Änderung dieser Skripte. Dieser Ansatz bringt einve Vielzahl an Problemen mit sich. Es wird durch die Skripte schwerer nachvollziehbar, welche Komponenten auf welche Plattform deployed werde. Zusätzlich enthalten Services in der Regel keine Informationen mit welchen Wekrzeugen sie deployed wurden. Daher wird eine Fehleranalyse bei einem korrupten Deployment erschwert.\\
+Eine weiteres Problem entsteht dadurch, dass die Werkzeuge häufig die Sicherheitsinformationen wie Nutzername und Passwort von einem Werkzeug zum nächste weitergeben müssen und dadurch die Sicherheit gefährdet wird. \\
+Das größte Problem besteht allerdings darin, dass viele Werkzeuge an sich nicht für Continuous Deployment geeignet sind, da diese in einer Zeit vor dem Continuous Deployment entstanden sind. Daher lassen sich neue Konzepte nur schwer auf diese Werkzeuge übertragen.
