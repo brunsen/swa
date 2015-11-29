@@ -6,18 +6,11 @@ DevOps bietet einem Softwarehersteller viele Vorteile. Unter anderem wird das  P
 Zustätzlich sollte die benötigte Koordination zwischen Development und Operations verringert werden. Des weiteren ermöglicht DevOps einsparungen in den benötigten Kapazitäten des Operation Teams. Dies wird mittels Automatisierung gängiger Aufgaben von Operations wie der Analyse von Systemlogs, der Erstellung von Backups, der Optimierung von Systemperformance oder der Lösung von identifizierten Problemen ermöglicht.
 
 \section{Maßnahmen}
-Wie bereits erwähnt 
-\begin{itemize}
-\item Operations bei der Entwicklung berücksichtigen (Logging, Monitoring
-Informationen für Incident Handling)
-\item Developer werden verantwortlich für das Behandeln ernsterer Incidents
-gemacht
-\item Erzwingen eines gemeinsam genutzten Deployment Prozesses zwischen Dev
-und Operations
-\item Kontinuierliches Deployment mittels Automatismen (z.B Tests)
-\item Infrastruktur benötigt den selben Qualitätsanspruch wie Anwendungscode
-(Anwenden von Qualitätssicherungs Praktiken)
-\end{itemize}
+Wie bereits erwähnt umfasst der Begriff DevOps die Maßnahmen, die Development und Operations näher zusammenführen sollen. Eine dieser Maßnahmen ist die Berücksichtigung von Operations bei der Softwareentwicklung. Da Operations auf Werkzeuge zum Logging und Monitoring einer Anwendung angewiesen sind, sollen Entwickler geignete Logs und Schnittstellen zum Monitoring innerhalb der Anwendung zur Verfügung stellen. Zusätzlich sollen die Entwickler eine möglichst hohe Anzahl an Informationen für das Incident Handling bereit stellen. Dies kann durch eine hohe Anzahl an beschriebenen Fehlertypen innerhalb der Anwendung realisiert werden. \\
+Zusätzlich fordert DevOps, dass Entwickler für das Behandeln ernsterer Incidents (Vorfälle) verantwortlich gemacht werden. Sollte ein Programm einen Fehler aufweisen, der zum Beispiel nicht trivial durch eine angepasste Umgebungsvariable zu lösen ist, sollen sich die Entwickler des Problems annehmen. \\
+Des weiteren erfordert DevOps, dass Development und Operations denselben Deployment Prozess verwenden. Das bedeutet, dass Entwickler während der Entwicklung ihren Programmcode mit den selben Werkzeugen beziehungsweise Skripten auf ihre Testumgebung spielen, die Operation  in der Transitionphase ebenfalls verwenden würden.\\
+Zusätzlich legt DevOps großen Wert eine saubere Infrastruktur. Daher muss laut DevOps auch die Infrastruktur den selben Qualitätsanspruch wie Anwendungscode entsprechen. Dies kann durch Anwendung von Qualitätssicherungs Praktiken erfolgen. \\
+Darüber hinaus ist kontinuierliches Deployment mittels Automatismen wie zum Beispiel Tests oder Build Skripten ein zentraler Bestandteil von DevOps.
 
 \section{Ziele}
 \begin{itemize}
