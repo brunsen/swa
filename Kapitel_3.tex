@@ -70,26 +70,26 @@ Da üblicherweise auf Identifizierte Veränderungen nicht direkt reagiert werden
 
 \section{Antipattern}
 
-In diesem Abschnitt werden einige Antipattern vorgestellt und gezeigt wie die korrekte Vorgehensweise ist.//
+In diesem Abschnitt werden einige Antipattern vorgestellt und gezeigt wie die korrekte Vorgehensweise ist.
 
-Funktionsumfang eines Services wächst mit der Zeit und den Anforderungen://
-Services sollten möglichst klein gehalten werden und neu eingeführte Funktionen sollten jeweils ein neuen Service bilden.//
-Zu wenig Automatisierung der Test und des Deployments://
-Um kurze Releasephasen einzuhalten ist es wichtig in allen möglichen Bereichen zu automatisieren, da sonst zu viel Zeit verloren geht.//
-Horizontale Schichten werden als Services abgebildet (z.B. Datenschicht und Geschäftslogik)://
-Microservices sollten möglichst unabhängig und einzeln ausführbar sein. Sobald Datenschicht und Geschäftslogik getrennt wird, benötigt mindestens ein Service für den Zugriff auf die Datenbank immer ein anderen Service. Dies entspricht nicht den gewünschten Eigenschaften von Microservices.//
-Jeder Service wird manuell konfiguriert://
-Muss beispielsweise eine Internetadresse in den Servicen geändert werden, würde es sehr zeitaufwenig sein die Änderungen in jeden Service einzeln auszuführen. Daher sollten die Services mit einem Konfigurationsserver verbunden sein und Änderungen über diesen Server ausgeführt werden.//
-Zu jedem Service existiert nur eine Version://
-Kurze Releasephasen bedeuten häufige Versionsänderungen. Existiert nur eine Version hat dies zur Folge, dass alle Instanzen der alten Version zerstört werden müssen. Dabei könnten diese Instanzen allerdings gerade von Clienten in Benutzung sein. Daher sollten nur Instanzen durch Serviceinstanzen der neuen Version ersetzt werden, wenn sie nicht verwendet werden.//
+Funktionsumfang eines Services wächst mit der Zeit und den Anforderungen:\\
+Services sollten möglichst klein gehalten werden und neu eingeführte Funktionen sollten jeweils ein neuen Service bilden.
+Zu wenig Automatisierung der Test und des Deployments:\\
+Um kurze Releasephasen einzuhalten ist es wichtig in allen möglichen Bereichen zu automatisieren, da sonst zu viel Zeit verloren geht.\\
+Horizontale Schichten werden als Services abgebildet (z.B. Datenschicht und Geschäftslogik):\\
+Microservices sollten möglichst unabhängig und einzeln ausführbar sein. Sobald Datenschicht und Geschäftslogik getrennt wird, benötigt mindestens ein Service für den Zugriff auf die Datenbank immer ein anderen Service. Dies entspricht nicht den gewünschten Eigenschaften von Microservices.\\
+Jeder Service wird manuell konfiguriert:\\
+Muss beispielsweise eine Internetadresse in den Servicen geändert werden, würde es sehr zeitaufwenig sein die Änderungen in jeden Service einzeln auszuführen. Daher sollten die Services mit einem Konfigurationsserver verbunden sein und Änderungen über diesen Server ausgeführt werden.\\
+Zu jedem Service existiert nur eine Version:\\
+Kurze Releasephasen bedeuten häufige Versionsänderungen. Existiert nur eine Version hat dies zur Folge, dass alle Instanzen der alten Version zerstört werden müssen. Dabei könnten diese Instanzen allerdings gerade von Clienten in Benutzung sein. Daher sollten nur Instanzen durch Serviceinstanzen der neuen Version ersetzt werden, wenn sie nicht verwendet werden.\\
 
 
 
 
 \section{Gefahren}
 
-Microservices beinhalten einige Gefahren. Die hohe Anzahl an Netzwerkverbindungen für die Kommunikation zwischen den Servicen, Clienten und der Registy kann zu mögliche Latenzen führen. Wodurch fälschlicherweise Timeouts ermittelt werden können. Auch verschlechtert sich die Effizienz des Business Services, da Clienten länger auf die Antwort eines Services warten muss.//
-Unerwartete Überlastungen von Serviceinstanzen verlangsamen die Performance. Ebenso führen Ausfälle von Instanzen zu geringerer Effizienz der gesamten Anwendung.//
+Microservices beinhalten einige Gefahren. Die hohe Anzahl an Netzwerkverbindungen für die Kommunikation zwischen den Servicen, Clienten und der Registy kann zu mögliche Latenzen führen. Wodurch fälschlicherweise Timeouts ermittelt werden können. Auch verschlechtert sich die Effizienz des Business Services, da Clienten länger auf die Antwort eines Services warten muss.\\
+Unerwartete Überlastungen von Serviceinstanzen verlangsamen die Performance. Ebenso führen Ausfälle von Instanzen zu geringerer Effizienz der gesamten Anwendung.\\
 Bei einer hohen Anzahl von Serviceinstanzen kann es dazu kommen, dass die Registry nicht mit der Verwaltung der Instanzen hinter herkommt und es bei der Vermittlung der Instanzen an die Clienten zu Verzögerungen kommt oder sogar zur falschen Vermittlung einer Instanz.
 
 \section{Beispiel}
