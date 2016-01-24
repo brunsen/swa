@@ -1,10 +1,10 @@
 \chapter{Microservices}
-In diesem Kapitel werden Mircoservices genauer betrachtet. Dazu wird zunächst der Zusammenhang zwischen DevOps und Mircoservices erläutert. Es wird gezeigt, dass Microservices optimal dazu geeignet sind die Anforderungen von DevOps zu erfüllen. Daraufhin werden Architektur, Eigenschaften sowie Herausforderungen von Mircoservices vorgestellt. Dies wird immer unter dem Gesichtspunkt betrachtet, dass Microservices für DevOps eingesetzt wird. Dementsprechend werden stets die Punkte hervorgehoben die für oder gegen den Einsatz in DevOps sprechen. Zum Schluss dieses Kapitels werden noch einige Gefahren und Antipattern vorgestellt.
+In diesem Kapitel werden Mircoservices genauer betrachtet. Dazu wird zunächst der Zusammenhang zwischen DevOps und Mircoservices erläutert. Es wird gezeigt, dass Microservices optimal geeignet sind die Anforderungen von DevOps zu erfüllen. Daraufhin werden Architektur, Eigenschaften sowie Herausforderungen von Mircoservices vorgestellt. Dies wird immer unter dem Gesichtspunkt betrachtet, dass Microservices für DevOps eingesetzt wird. Dementsprechend werden stets die Punkte hervorgehoben, die für oder gegen den Einsatz in DevOps sprechen. Zum Schluss dieses Kapitels werden noch einige Gefahren und Antipattern vorgestellt.
 
 \section{Motivation}
 
-Entwicklerteams, die die DevOps Praktiken anwenden sind üblicherweise sehr klein und haben geringe Koordination zu anderen Teams. Dadurch haben die Teams eine begrenzte Übersicht über die gesamte Anwendung. Sobald allerdings neu entwickelte Komponenten eingesetzt werden sollen, ist es zwingend notwendig Kompatibilität zu anderen Komponenten sicher zu stellen. Dies kann zum einen durch teamübergreifende Koordination oder durch Einsetzen einer bestimmten Architektur gelöst werden. \\
-Des weiteren fordern die DevOps Praktiken das continuous Deployment. Dies sollte stets ohne große architekturelle Anpassungen einsetzbar sein, um so die benötigte Zeit für die Einführung einer neuen Komponente möglichst gering zu halten. Weitere Anforderungen an die Architektur sind: Unterstützung unterschiedlicher Versionen einer Komponente, sodass Teammitglieder ohne größere Koordination eigene Neuentwicklungen einsetzen können. Ebenso sollen Rollbacks möglich sein, um zum einen live testing zu ermöglichen und im Fall von Fehlern die eingesetzte Komponente zurück zu setzten.\\
+Entwicklerteams, die die DevOps Praktiken anwenden, sind üblicherweise sehr klein und haben geringe Koordination zu anderen Teams. Dadurch haben die Teams eine begrenzte Übersicht über die gesamte Anwendung. Sobald allerdings neu entwickelte Komponenten eingesetzt werden sollen, ist es zwingend notwendig Kompatibilität zu anderen Komponenten sicher zu stellen. Dies kann zum einen durch teamübergreifende Koordination oder durch den Einsatz einer bestimmten Architektur gelöst werden. \\
+Des weiteren fordern die DevOps Praktiken das continuous Deployment. Dies sollte stets ohne große architektonische Anpassungen einsetzbar sein, um so die benötigte Zeit für die Einführung einer neuen Komponente möglichst gering zu halten. Weitere Anforderungen an die Architektur sind: Unterstützung unterschiedlicher Versionen einer Komponente, sodass Teammitglieder ohne größere Koordination eigene Neuentwicklungen einsetzen können. Ebenso sollen Rollbacks möglich sein, um zum einen live testing zu ermöglichen und im Fall von Fehlern die eingesetzte Komponente zurück zu setzten.\\
 
 Diese Anforderungen werden allesamt von der Microservice Architektur erfühlt. Im folgenden Abschnitt wird diese Architektur genauer erläutert. 
  
@@ -12,15 +12,15 @@ Diese Anforderungen werden allesamt von der Microservice Architektur erfühlt. I
 
 \section{Architektur}
 
-Bei der Mircroservice Architektur besteht die Softwareanwendungen beziehungsweise der Business Services aus mehreren kleinen Komponenten. Diese Komponenten werden Mircoservices genannt, der eine angeschlossene kleine Funktion der Anwendung beinhaltet. Jede Komponente ist einzeln ausführbar, dies hat den Vorteil dass für die Bereitstellung eines Mircoservices keine weiteren Komponenten benötigt werden und so keine beziehungsweise nur geringe Abhängigkeiten bestehen. Dementsprechend verfügen Microservices, sofern sie es benötigen, über ihre eigene Datenbank auf die nur sie zugreifen können. \\
-Die Funktionen und Daten eines Mircoservices werden über das Interface des Mircoservices angeboten. Die Kommunikation zwischen den Microservices verläuft über das Netzwerk. Üblicherweise wird dafür ein simples Kommunikationsprotokoll wie HTTP verwendet. Der Aufruf eines oder mehrerer Microservices von einem Mircoservice bildet den gesamten Business Service. Abbildung X zeigt ein Beispiel. \\
-Instanzen eines Services werden in einer Registry verwaltet und sobald ein Service eine Funktion eines anderen Services benötigt fragt es bei der Registry nach diesem Service und erhält die benötigten Daten. Der genaue Ablauf der verschiedenen Akteure wird im folgenden Abschnitt genauer betrachtet.\\
+Bei der Mircroservice Architektur besteht die Softwareanwendungen beziehungsweise der Business Services aus mehreren kleinen Komponenten. Diese Komponenten werden Mircoservices genannt, der eine angeschlossene kleine Funktion der Anwendung beinhaltet. Jede Komponente ist einzeln ausführbar, dies hat den Vorteil, dass für die Bereitstellung eines Mircoservices keine weiteren Komponenten benötigt werden und so keine beziehungsweise nur geringe Abhängigkeiten bestehen. Dementsprechend verfügen Microservices, sofern sie es benötigen, über ihre eigene Datenbank auf die nur sie zugreifen können. \\
+Die Funktionen und Daten eines Mircoservices werden über das Interface des Mircoservices angeboten. Die Kommunikation zwischen den Microservices verläuft über das Netzwerk. Üblicherweise wird dafür ein simples Kommunikationsprotokoll wie HTTP verwendet. Der Aufruf eines oder mehrerer Microservices von einem Mircoservice bildet den gesamten Business Service. Abbildung \ref{aService} zeigt ein Beispiel. \\
+Instanzen eines Services werden in einer Registry verwaltet und sobald ein Service eine Funktion eines anderen Services benötigt, fragt der Service bei der Registry nach diesem Service und erhält die benötigten Daten. Der genaue Ablauf der verschiedenen Akteure wird im folgenden Abschnitt genauer betrachtet.\\
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.5\textwidth]{pictures/businessService.png}
 	\caption{Business service}
-	\label{bService}
+	\label{aService}
 \end{figure}
 
 \section{Design Entscheidung}
@@ -29,7 +29,7 @@ In diesem Abschnitt wird zunächst das Koordinationsmodell mit den drei Akteuren
 \subsection{Koordinationsmodell}
 
 Beim Koordinationsmodell gibt es drei Akteure. Zum einen die \textit{Registry/Load Balancer}, wobei die Registry für die Verwaltung der Serviceinstanzen zuständig ist und der Load Balancer für die Verteilung der Last auf die verschiedenen Instanzen eines Services. So kann beispielsweise der Load Balancer bei erhöhter Anzahl von Anfragen auf einen Service weitere Instanzen anfordern, sodass Instanzen nicht überlastet werden.\\
-Der zweite Akteur ist die \textit{Instanz eines Services}, das Daten beziehungsweise Dienstleistungen anbietet. Die Instanz registriert sich bei der Registry und hinterlegt seinen Namen, Adresse und Interface. Daraufhin steht nun die Instanz für den dritten Akteur bereit: Der \textit{Client} kann dabei ein Benutzer oder ein Service sein, der für einige Aufgaben weitere Service benötigt. Dafür fragt dieser bei der Registry nach den gewünschten Service und erhält die hinterlegten Daten der Serviceinstanz. Mit diesen Daten kann der Client nun die Instanz über das Interface ansprechen und verwenden. Die folgende Abbildung X gibt eine Übersicht der Beziehungen der drei Akteure.
+Der zweite Akteur ist die \textit{Instanz eines Services}, die Daten beziehungsweise Dienstleistungen anbietet. Die Instanz registriert sich bei der Registry und hinterlegt ihren Namen, Adresse und Interface. Daraufhin steht nun die Instanz für den dritten Akteur bereit: Der \textit{Client} kann dabei ein Benutzer oder ein Service sein, der für einige Aufgaben weitere Services benötigt. Dafür fragt dieser bei der Registry nach den gewünschten Service und erhält die hinterlegten Daten der Serviceinstanz. Mit diesen Daten kann der Client nun die Instanz über das Interface ansprechen und verwenden. Die folgende Abbildung \ref{bService} gibt eine Übersicht der Beziehungen der drei Akteure.
 
 \begin{figure}[htbp]
   \centering
@@ -38,7 +38,7 @@ Der zweite Akteur ist die \textit{Instanz eines Services}, das Daten beziehungsw
 	\label{bService}
 \end{figure}
 
-Da es jederzeit Möglich ist, dass Instanzen ausfallen können oder nicht mehr aktiv sind, ist es wichtig dass die Registry über diese Instanzen informiert ist. Denn sonst vermittelt die Registry Instanzen an Clienten, die der Client nicht ansprechen kann. Für dieses Problem existiert der Healthcheck. Dabei werden Instanzen nur für eine bestimmte Zeit in der Registry verwaltet. Damit Instanzen nicht aus der Registry entfernt werden, müssen sich die Instanzen periodisch bei der Registry melden. Alternative kann die Registry proaktive Anfragen an Instanzen stellen, die in der Registry registiert sind. Sollte die Instanz nach bestimmter Zeit keine Antwort liefern wird diese aus der Registry entfernt.
+Da es jederzeit Möglich ist, dass Instanzen ausfallen können oder nicht mehr aktiv sind, ist es wichtig, dass die Registry über diese Instanzen informiert ist. Denn sonst vermittelt die Registry Instanzen an Clienten, die der Client nicht ansprechen kann. Für dieses Problem existiert der Healthcheck. Dabei werden Instanzen nur für eine bestimmte Zeit in der Registry verwaltet. Damit Instanzen nicht aus der Registry entfernt werden, müssen sich die Instanzen periodisch bei der Registry melden. Alternativ kann die Registry proaktive Anfragen an Instanzen stellen, die in der Registry registiert sind. Sollte die Instanz nach bestimmter Zeit keine Antwort liefern wird diese aus der Registry entfernt.
 
 \subsection{Ressourcenmanagement}
 
