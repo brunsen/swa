@@ -330,12 +330,12 @@
 % use a multiple column layout for up to three different
 % affiliations
 \author{\IEEEauthorblockN{Bennet Brunsen}
-\IEEEauthorblockA{Universität Hamburg
+\IEEEauthorblockA{Universität Hamburg\\
 Email: bennet.brunsen@informatik.uni-hamburg.de}
 \and
 \IEEEauthorblockN{Mathias Schmialek}
 \IEEEauthorblockA{Universität Hamburg\\
-Email: bennet.brunsen@informatik.uni-hamburg.de}
+Email: 8schmial@informatik.uni-hamburg.de}}
 
 
 % conference papers do not typically use \thanks and this command
@@ -374,7 +374,7 @@ Email: bennet.brunsen@informatik.uni-hamburg.de}
 
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
-\include{Abstract}
+\input{Abstract}
 
 % no keywords
 
@@ -391,32 +391,17 @@ Email: bennet.brunsen@informatik.uni-hamburg.de}
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
-
-
-\section{Introduction}
-% no \IEEEPARstart
-This demo file is intended to serve as a ``starter file''
-for IEEE conference papers produced under \LaTeX\ using
-IEEEtran.cls version 1.8b and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
-
-\hfill mds
- 
-\hfill August 26, 2015
-
 \tableofcontents
 
-\include{Kapitel_1}
+\input{Kapitel_1}
 
-\include{Kapitel_2}
+\input{Kapitel_2}
 
-\include{Kapitel_3}
+\input{Kapitel_3}
 
-\include{Kapitel_4}
+\input{Kapitel_4}
 
-\include{Kapitel_5}
+\input{Kapitel_5}
 
 
 
@@ -449,7 +434,6 @@ I wish you the best of success.
 \bibitem{DevOps}
 Len Bass and Ingo Weber and Liming Zhu, \emph{DevOps: A Software Architect's Perspective (SEI Series in Software Engineering) \LaTeX}, 1st~ed.\hskip 1em plus 0.5em minus 0.4em\relax Harlow, England: Addison-Wesley Professional, 2015.
 
-}
 
 \end{thebibliography} 
 
